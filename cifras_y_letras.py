@@ -1,7 +1,7 @@
 import sys
-sys.path.append(r'C:\Users\USUARIO\Desktop\SIA\aima-python')
+sys.path.append(r'\aima-python\notebooks')
 
-from search import Problem, astar_search, breadth_first_graph_search
+from aima.search import Problem, astar_search, breadth_first_graph_search
 
 class ProblemaCifras(Problem):
     ''' Clase que modelizar un algoritmo que solucione los problemas numéricos del programa Cifras Y Letras '''
@@ -20,7 +20,7 @@ class ProblemaCifras(Problem):
 
                 # suma
                 acciones.append((a, '+', b))
-                if a != b:
+                if a >= b:
 
                     # resta
                     acciones.append((a, '-', b)) 
@@ -72,6 +72,16 @@ class ProblemaCifras(Problem):
     # -> Definir el mejor algoritmo de búsqueda
 
     # Para que el árbol sea finito hay que asegurarse de que no se repitan estados
-
     # importar mi objeto y llamar al árbol
     # breadth_first_search
+
+
+problema = ProblemaCifras([1, 3, 7, 6, 8, 3], 48)
+
+nodo = breadth_first_graph_search(problema)
+
+if nodo:
+    print("Operaciones:", nodo.solution())
+    print("Estados:", [n.state for n in nodo.path()])
+else:
+    print("No hay solución")
