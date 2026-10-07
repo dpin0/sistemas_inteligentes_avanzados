@@ -4,7 +4,10 @@ sys.path.append("/usr/lib/python3/dist-packages/aima-python")
 from aima.search import Problem, astar_search, breadth_first_graph_search
 
 class ProblemaCifras(Problem):
-    ''' Clase que modelizar un algoritmo que solucione los problemas numéricos del programa Cifras Y Letras '''
+    ''' 
+    Clase que modelizar un algoritmo que solucione los problemas numéricos del programa Cifras Y Letras 
+    Claude Sonnet 5.5
+    '''
     
     def __init__(self, estado_inicial, estado_objetivo):
         super().__init__(tuple(sorted(estado_inicial)), estado_objetivo)
@@ -19,6 +22,7 @@ class ProblemaCifras(Problem):
 
                 # suma
                 acciones.append((a, '+', b))
+                # cambiar por -> yield(a, '+', b)
                 if a >= b:
 
                     # resta
